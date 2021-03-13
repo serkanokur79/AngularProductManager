@@ -1,7 +1,6 @@
-import { Component, OnInit, ɵɵtrustConstantResourceUrl } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
-import { ProductResponseModel } from 'src/app/models/productResponseModel';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -23,11 +22,12 @@ export class ProductComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts() {
-    console.log('request basladi');
+  getProducts(): void {
+
     this.productService.getProducts().subscribe((response) => {
       this.products = response.data;
       this.dataLoaded = true;
+
     });
 
   }
